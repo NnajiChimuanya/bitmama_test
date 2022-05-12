@@ -47,5 +47,8 @@ app.get("/api/getId/:id", (req, res) => __awaiter(void 0, void 0, void 0, functi
     if (data) {
         res.json(data);
     }
+    else {
+        res.send("This Id doesn,t exist");
+    }
 }));
 app.listen(port, () => console.log("Listening now"));

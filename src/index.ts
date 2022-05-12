@@ -40,6 +40,8 @@ app.get("/api/getId/:id", async (req: Request, res: Response) => {
     const data = await Id.findOne({_id : req.params.id},{__v : 0})
     if(data) {
         res.json(data)
+    } else {
+        res.send("This Id doesn,t exist")
     }
 })
 
