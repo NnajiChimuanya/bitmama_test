@@ -1,5 +1,8 @@
+
 # bitmama_test
 A controller logic which generate unique ids concurrently with other running instances
+
+# Working demo : 
 
 # Question 1
 ## Design  and Implement the controller logic :
@@ -13,18 +16,18 @@ A controller logic which generate unique ids concurrently with other running ins
 3) Any server instance can leave or join the process
 
 ### API design :
-1) /api/generateId
+#### 1) /api/generateId
 
 Solution: 
 1) unique Id = uuid() + timestamp
 Advantage : 1) Unique and the probability of collision is very smaall
 
 
-2)/api/getId/:id
+#### 2)/api/getId/:id
 returns the information about an id if it exist
 
 
-<br>
+
 ### High-level design :
                                                     
                                                   /---------> ID-Generator 1
