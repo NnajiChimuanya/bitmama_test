@@ -15,4 +15,16 @@ A controller logic which generate unique ids concurrently with other running ins
 ### API design :
 1) /api/generateId
 
+Solution: 
+1) Return a uuid + timestamp
 
+Advantage : 1) Unique and the probability of collision is very smaall
+
+
+
+### High-level design :
+                                                    ---------> ID-Generator 1
+                                                  /
+GET:  /api/generateId  ----->  Loader Balancer ---- ----------> ID-Generator 2
+                                                  \
+                                                    -----------> ID-Generator 3
