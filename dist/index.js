@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const uuid_1 = require("uuid");
 const mongoose_1 = __importDefault(require("mongoose"));
-const id_1 = __importDefault(require("./model/id"));
+const Id_1 = __importDefault(require("./model/Id"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
 app.set("view engine", "ejs");
@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 app.get("/api/generateId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let time = Date.now();
     let uuid = `${(0, uuid_1.v4)()}-${time}`;
-    let newId = yield new id_1.default({
+    let newId = yield new Id_1.default({
         _id: uuid,
         time: new Date().toUTCString()
     });
@@ -43,7 +43,7 @@ app.get("/api/generateId", (req, res) => __awaiter(void 0, void 0, void 0, funct
     res.json(newId);
 }));
 app.get("/api/getId/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const data = yield id_1.default.findOne({ _id: req.params.id }, { __v: 0 });
+    const data = yield Id_1.default.findOne({ _id: req.params.id }, { __v: 0 });
     if (data) {
         res.json(data);
     }
