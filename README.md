@@ -32,3 +32,14 @@ GET:    /api/generateId  -------------->          Loader Balancer ---- ---------
                                                    \-----------> ID-Generator 3
      
                                                    
+##  The boundaries for which the solutions might pose a problem :
+Possible collision of Id
+
+Handling : The unique Id generated contains in it the particular timestamp in milliseconds since jan 1, 1970 which can never collide
+
+
+# Question 2
+Why do you think it is a bad idea to simply solve the above issue with keeping the sequence in a database?
+
+ANS :
+1) INFORMATION DISCLOSURE : It leaks some information about the system hence enabling security exploitation.
