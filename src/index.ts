@@ -33,12 +33,16 @@ app.get("/api/generateId", async (req: Request, res: Response) => {
 
    newId.save()
 
-   res.json(newId)
-
-   
-  
-   
+   res.json(newId)  
 } )
+
+app.get("/api/getId/:id", async (req: Request, res: Response) => {
+    const data = await Id.findOne({_id : req.params.id},{__v : 0})
+    if(data) {
+        res.json(data)
+    }
+})
+
 
 
 app.listen(port, () => console.log("Listening now"))

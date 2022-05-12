@@ -16,11 +16,12 @@ A controller logic which generate unique ids concurrently with other running ins
 1) /api/generateId
 
 Solution: 
-1) Return a uuid + timestamp
-
+1) unique Id = uuid() + timestamp
 Advantage : 1) Unique and the probability of collision is very smaall
 
 
+2)/api/getId/:id
+returns the information about an id if it exist
 
 ### High-level design :
                                                     
