@@ -1,6 +1,7 @@
 import express, {Request, Response} from "express"
 import { v4 as uuidv4 } from "uuid"
-import ejs from "ejs"
+import mongoose from "mongoose"
+import Id from "../model/id"
 
 const app = express()
 const port = process.env.PORT || 3000
@@ -8,19 +9,35 @@ app.set("view engine", "ejs")
 app.use(express.static("public"))
 app.use(express.json())
 
+try {
+    mongoose.connect("mongodb+srv://bitmama:bitmama@bitmama.dohuc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    console.log("Connected to the database")
+} catch (error) {
+    if(error) throw error
+}
+
 
 app.get("/", (req: Request, res: Response) => {
     res.render("index")
 })
 
-app.get("/api/generateId", (req: Request, res: Response) => {
+app.get("/api/generateId", async (req: Request, res: Response) => {
 
-  let date = Date.now()
-    res.json({
-        id : `${uuidv4()}-${date}`,
-        time : (new Date(date)).toUTCString()
-        
+    let time = Date.now()
+    let uuid = `${uuidv4()}-${time}`
+
+    let newId = await new Id({
+        _id : uuid,
+        time : new Date().toUTCString()
     })
+
+   newId.save()
+
+   res.json(newId)
+
+   
+  
+   
 } )
 
 
