@@ -23,6 +23,8 @@ Advantage : 1) Unique and the probability of collision is very smaall
 2)/api/getId/:id
 returns the information about an id if it exist
 
+
+<br>
 ### High-level design :
                                                     
                                                   /---------> ID-Generator 1
