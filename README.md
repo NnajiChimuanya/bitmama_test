@@ -25,7 +25,7 @@ Advantage : 1) Unique and the probability of collision is very smaall
 ### High-level design :
                                                     
                                                   /---------> ID-Generator 1
-GET:  /api/generateId  ----->  Loader Balancer ---- ----------> ID-Generator 2
+GET:    /api/generateId  -------------->          Loader Balancer ---- ----------> ID-Generator 2
 
 
                                                    \-----------> ID-Generator 3
