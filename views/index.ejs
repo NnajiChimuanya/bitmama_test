@@ -10,6 +10,17 @@
     <title>Document</title>
 </head>
 <body>
-    <a type="button" class="btn btn-primary" href="/api/generateId">GENERATE UNIQUE ID</a>
+   <div class="main">
+        <a type="button" class="btn btn-primary" href="/api/generateId">GENERATE UNIQUE ID</a>
+        <div container="">
+            <% if(data) { %>
+
+                <p> Unique Id : <strong> <%= data._id %> </strong> </p>
+                <p> Time generated : <strong> <%= data.time %> </strong></p>
+            <% } %>
+        </div>
+   </div>
+
+   
 </body>
 </html>

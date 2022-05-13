@@ -18,7 +18,7 @@ try {
 
 
 app.get("/", (req: Request, res: Response) => {
-    res.render("index")
+    res.render("index", {data : ""})
 })
 
 app.get("/api/generateId", async (req: Request, res: Response) => {
@@ -33,7 +33,7 @@ app.get("/api/generateId", async (req: Request, res: Response) => {
 
    newId.save()
 
-   res.json(newId)  
+   res.render("index", {data : newId})  
 } )
 
 app.get("/api/getId/:id", async (req: Request, res: Response) => {

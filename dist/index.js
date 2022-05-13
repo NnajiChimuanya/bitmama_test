@@ -30,7 +30,7 @@ catch (error) {
         throw error;
 }
 app.get("/", (req, res) => {
-    res.render("index");
+    res.render("index", { data: "" });
 });
 app.get("/api/generateId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let time = Date.now();
@@ -40,7 +40,7 @@ app.get("/api/generateId", (req, res) => __awaiter(void 0, void 0, void 0, funct
         time: new Date().toUTCString()
     });
     newId.save();
-    res.json(newId);
+    res.render("index", { data: newId });
 }));
 app.get("/api/getId/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield Id_1.default.findOne({ _id: req.params.id }, { __v: 0 });
